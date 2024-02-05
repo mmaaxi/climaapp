@@ -4,7 +4,7 @@ import { useState } from "react"
 export const Formulario = () => {
 
   const [ alerta, setAlerta ] = useState('')
-  const { busqueda, datosBusqueda } = useClima()
+  const { busqueda, datosBusqueda, consultarClima } = useClima()
   const { ciudad, pais } = busqueda
 
   const handleSubmit = e => {
@@ -14,6 +14,8 @@ export const Formulario = () => {
       setAlerta('Todos los campos son obligatorios')
       return
     }
+
+    consultarClima(busqueda)
   }
   return (
     <div className='contenedor'>
